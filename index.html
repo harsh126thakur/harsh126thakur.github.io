@@ -3,47 +3,208 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harsh Raj Thakur | PhD Scholar</title>
-
-    <link rel="stylesheet" href="style.css">
+    <title>Harsh Raj Thakur | Research Portfolio</title>
+    
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
 
-<header>
-    <h1>Harsh Raj Thakur</h1>
-    <p>PhD Scholar | IIT Roorkee</p>
-</header>
+    <!-- Header Navigation -->
+    <header>
+        <nav class="nav-container">
+            <a href="#hero" class="logo">HARSH RAJ THAKUR</a>
+            <ul class="nav-links">
+                <li><a href="#research">Research</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<nav>
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Research</a>
-    <a href="#">Publications</a>
-    <a href="#">Projects</a>
-    <a href="#">Contact</a>
-</nav>
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-img-container">
+            <img src="assets/images/profile.jpg" alt="Harsh Raj Thakur" class="profile-img">
+        </div>
+        <div class="hero-text">
+            <h1>Harsh Raj Thakur</h1>
+            <div class="hero-subtitle">Researcher at IIT Roorkee</div>
+            <p class="hero-desc">Specializing in VLSI architectures, hardware-efficient ASIC implementations, digital signal processing arithmetic, and edge-intelligence logic acceleration.</p>
+            <div class="hero-buttons">
+                <a href="#research" class="cta-btn">View Publications</a>
+                <a href="#contact" class="secondary-btn">Get In Touch</a>
+            </div>
+        </div>
+    </section>
 
-<section class="hero">
-    <h2>Welcome to My Academic Website</h2>
+    <!-- Main Content Grid -->
+    <main class="max-width-wrapper">
+        <div class="main-layout">
+            
+            <!-- Left Side: Research & Projects -->
+            <div>
+                <!-- Research Section -->
+                <section id="research">
+                    <h2 class="section-title">Selected Publications</h2>
+                    
+                    <div class="item-card">
+                        <h3>A Transistor-Level Implementation of Radix-2 and Radix-4 FFT Using Logical Effort</h3>
+                        <div class="item-meta">IEEE VLSID 2026 | Pune, India</div>
+                        <p class="item-desc">Authors: Harsh Raj Thakur, Sparsh Mittal</p>
+                    </div>
 
-    <p>
-        Research Interests:
-        Posit Arithmetic,
-        VLSI Design,
-        AI Hardware,
-        Computing-in-Memory,
-        FPGA Design.
-    </p>
+                    <div class="item-card">
+                        <h3>Design and ASIC Implementation of a Novel Three-Stage Pipelined Posit(16,2) Multiplier</h3>
+                        <div class="item-meta">Submitted to IEEE ISVLSI 2026</div>
+                        <p class="item-desc">Authors: Harsh Raj Thakur, Sparsh Mittal</p>
+                    </div>
 
-    <button>Download CV</button>
-</section>
+                    <div class="item-card">
+                        <h3>Power-Efficient VLSI Realization of Decimal Convolution Algorithms for Resource-Constrained Environments</h3>
+                        <div class="item-meta">Microsystem Technology, Springer (Journal), 2024</div>
+                        <p class="item-desc">Authors: Rekib Uddin Ahmed, Harsh Raj Thakur, Seenivasn M A, Prabir Saha. A design perspective in CMOS and Double-Gate CMOS Technology.</p>
+                    </div>
 
-<footer>
-    © 2026 Harsh Raj Thakur
-</footer>
+                    <div class="item-card">
+                        <h3>A Comparative Analysis of Power Consumption and Delay in 4-bit Vedic Multiplier and a Proposed Multiplier Utilizing Variable Bit Adders for CNN Logic</h3>
+                        <div class="item-meta">IEEE International Conference-INDISCON 2024</div>
+                        <p class="item-desc">Authors: Harsh Raj Thakur, Phannong Youngkuk. Accepted and presented.</p>
+                    </div>
+                </section>
 
-<script src="script.js"></script>
+                <!-- Projects Section -->
+                <section id="projects">
+                    <h2 class="section-title">Key Projects</h2>
 
+                    <div class="item-card">
+                        <h3>Two-Stage Operational Amplifier Simulation & Layout</h3>
+                        <div class="item-meta">IIT Roorkee</div>
+                        <div class="item-desc">
+                            <ul>
+                                <li>Designed and characterized a two-stage operational amplifier with Miller compensation in Cadence SPECTRE.</li>
+                                <li>Achieved differential gain &gt;70 dB, GBP &gt;100 MHz, phase margin &gt;60°, and slew rate &ge;0.1 V/µs.</li>
+                                <li>Optimized for high CMRR, low power dissipation, and operation within a 1.8 V supply voltage, validating through RC-extracted layout simulations.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="item-card">
+                        <h3>Transistor-Level FFT Design using Logical Effort</h3>
+                        <div class="item-meta">IIT Roorkee</div>
+                        <div class="item-desc">
+                            <ul>
+                                <li>Designed Radix-2 and Radix-4 FFT architectures at transistor level using logical effort methodology.</li>
+                                <li>Optimized critical path delay and power using a custom 28T full adder design.</li>
+                                <li>Improved throughput and speed for real-time DSP applications via efficient gate sizing.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="item-card">
+                        <h3>DesignTechVLSI — Learning Platform</h3>
+                        <div class="item-meta">Personal Project (designtechvlsi.com)</div>
+                        <div class="item-desc">
+                            <ul>
+                                <li>Developed and deployed a platform dedicated to VLSI and semiconductor learning.</li>
+                                <li>Built full-stack architecture using Firebase for authorization, database management, and analytics with backend hosting on Render.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Side: Sidebar Toolkit & Education -->
+            <div class="sidebar-container">
+                <!-- Skills Box -->
+                <div class="sidebar-box">
+                    <h3>Technical Skills</h3>
+                    <div class="skills-grid">
+                        <span class="skill-tag">Verilog</span>
+                        <span class="skill-tag">Cadence Virtuoso</span>
+                        <span class="skill-tag">Innovus</span>
+                        <span class="skill-tag">Genus</span>
+                        <span class="skill-tag">ModelSim</span>
+                        <span class="skill-tag">Xilinx</span>
+                        <span class="skill-tag">Spectre</span>
+                        <span class="skill-tag">ASIC Design</span>
+                        <span class="skill-tag">Linux / CentOS</span>
+                    </div>
+                </div>
+
+                <!-- Education Box -->
+                <div class="sidebar-box">
+                    <h3>Education</h3>
+                    <div class="edu-item">
+                        <div class="edu-degree">Research Scholar</div>
+                        <div class="edu-inst">IIT Roorkee</div>
+                        <div class="edu-date">July 2024 - Present</div>
+                    </div>
+                    <div class="edu-item">
+                        <div class="edu-degree">M.Tech VLSI & Embedded Systems</div>
+                        <div class="edu-inst">NIT Meghalaya (GPA: 9.2)</div>
+                        <div class="edu-date">2022 - 2024</div>
+                    </div>
+                    <div class="edu-item">
+                        <div class="edu-degree">B.E. Electrical & Electronics Engineering</div>
+                        <div class="edu-inst">Sathyabama University</div>
+                        <div class="edu-date">2014 - 2018</div>
+                    </div>
+                </div>
+
+                <!-- Languages Box -->
+                <div class="sidebar-box">
+                    <h3>Languages</h3>
+                    <div class="skills-grid">
+                        <span class="skill-tag">English</span>
+                        <span class="skill-tag">Hindi</span>
+                        <span class="skill-tag">Japanese</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Contact Section -->
+    <section id="contact" class="max-width-wrapper">
+        <h2 class="section-title">Get In Touch</h2>
+        <form class="contact-form" id="contactForm">
+            <div class="form-group">
+                <input type="text" id="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" id="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/harsh-raj-thakur-a52790114/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="mailto:kspqa126@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+        <p>Roorkee, India</p>
+        <p class="copyright">&copy; 2026 Harsh Raj Thakur. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS File (Correctly pointing to your file explorer path) -->
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
