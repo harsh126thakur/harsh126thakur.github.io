@@ -204,14 +204,14 @@ section {
     color: var(--accent-color);
 }
 
-/* --- Split Portfolio Layout Grid --- */
+/* --- Split Layout Architecture --- */
 .main-layout {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 4rem;
 }
 
-/* --- Modern Glassmorphic Cards --- */
+/* --- Modern Interactive Cards --- */
 .item-card {
     background: var(--card-bg);
     backdrop-filter: blur(4px);
@@ -220,13 +220,6 @@ section {
     padding: 1.75rem;
     margin-bottom: 1.75rem;
     border: 1px solid var(--border-color);
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.item-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(56, 189, 248, 0.4);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2), inset 0 0 15px rgba(56, 189, 248, 0.05);
 }
 
 .item-card h3 {
@@ -262,7 +255,7 @@ section {
     margin-bottom: 0.4rem;
 }
 
-/* --- Sidebar Box Configurations --- */
+/* --- Sidebar Specifications --- */
 .sidebar-container {
     padding-top: 6rem;
 }
@@ -304,14 +297,6 @@ section {
     font-size: 0.85rem;
     font-weight: 500;
     border: 1px solid rgba(56, 189, 248, 0.15);
-    transition: all 0.3s ease;
-}
-
-.skill-tag:hover {
-    background-color: var(--accent-color);
-    color: #000;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.2);
 }
 
 .edu-item {
@@ -382,16 +367,44 @@ section {
     box-shadow: 0 6px 20px rgba(56, 189, 248, 0.4);
 }
 
-/* --- JavaScript Scroll-Reveal Class Trigger --- */
+/* --- Core Graphic Animations Framework --- */
 .reveal-on-scroll {
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), 
+                transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+    will-change: transform, opacity;
 }
 
 .reveal-on-scroll.active {
     opacity: 1;
     transform: translateY(0);
+}
+
+.item-card, .sidebar-box {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
+                border-color 0.3s ease, 
+                box-shadow 0.4s ease;
+}
+
+.item-card:hover, .sidebar-box:hover {
+    transform: translateY(-6px) scale(1.01);
+    border-color: rgba(56, 189, 248, 0.45) !important;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 
+                0 0 20px rgba(56, 189, 248, 0.1);
+}
+
+.skill-tag {
+    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.skill-tag:hover {
+    transform: scale(1.1) translateY(-2px);
+    background-color: var(--accent-color) !important;
+    color: #000 !important;
+    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
 }
 
 /* --- Footer Area --- */
@@ -427,7 +440,7 @@ footer {
     color: #475569;
 }
 
-/* --- Responsive Layout Breakpoints --- */
+/* --- Responsive Adjustments --- */
 @media (max-width: 900px) {
     #hero {
         grid-template-columns: 1fr;
@@ -454,47 +467,4 @@ footer {
     .section-title::after {
         margin: 0.5rem auto 0 auto;
     }
-}
-/* --- Core Graphic Animations Framework --- */
-
-/* Scroll Entry Transitions */
-.reveal-on-scroll {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), 
-                transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
-    will-change: transform, opacity;
-}
-
-.reveal-on-scroll.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Fluid Hover Graphic Enhancements */
-.item-card, .sidebar-box {
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
-                border-color 0.3s ease, 
-                box-shadow 0.4s ease;
-}
-
-.item-card:hover, .sidebar-box:hover {
-    transform: translateY(-6px) scale(1.01);
-    border-color: rgba(56, 189, 248, 0.45) !important;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 
-                0 0 20px rgba(56, 189, 248, 0.1);
-}
-
-/* Tech Tag Floating Micro-Interactions */
-.skill-tag {
-    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
-}
-
-.skill-tag:hover {
-    transform: scale(1.1) translateY(-2px);
-    background-color: var(--accent-color) !important;
-    color: #000 !important;
-    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
 }
