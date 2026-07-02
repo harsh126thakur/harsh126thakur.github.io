@@ -1,11 +1,11 @@
-// Verification confirmation when contact form submits
+// Contact Form Submission Action Handling
 document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
     const name = document.getElementById('name').value;
     
-    // Front-end user alert verification
-    alert(`Thank you for reaching out, ${name}! Your form submission simulation was triggered.`);
+    // Web UI alert to test functionality
+    alert(`Thank you for reaching out, ${name}! Your form submission action was triggered.`);
     
     this.reset();
 });
