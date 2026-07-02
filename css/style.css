@@ -455,3 +455,46 @@ footer {
         margin: 0.5rem auto 0 auto;
     }
 }
+/* --- Core Graphic Animations Framework --- */
+
+/* Scroll Entry Transitions */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), 
+                transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+    will-change: transform, opacity;
+}
+
+.reveal-on-scroll.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Fluid Hover Graphic Enhancements */
+.item-card, .sidebar-box {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
+                border-color 0.3s ease, 
+                box-shadow 0.4s ease;
+}
+
+.item-card:hover, .sidebar-box:hover {
+    transform: translateY(-6px) scale(1.01);
+    border-color: rgba(56, 189, 248, 0.45) !important;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 
+                0 0 20px rgba(56, 189, 248, 0.1);
+}
+
+/* Tech Tag Floating Micro-Interactions */
+.skill-tag {
+    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.skill-tag:hover {
+    transform: scale(1.1) translateY(-2px);
+    background-color: var(--accent-color) !important;
+    color: #000 !important;
+    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+}
