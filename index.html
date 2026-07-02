@@ -96,13 +96,16 @@
     </style>
 </head>
 <body>
+    <!-- Interactive Canvas Layer Animation Component -->
+    <canvas id="circuitCanvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></canvas>
 
     <!-- Header Navigation -->
     <header>
         <nav class="nav-container">
             <a href="#hero" class="logo">HARSH RAJ THAKUR</a>
             <ul class="nav-links">
-                <li><a href="#research">Research</a></li>
+                <li><a href="#research-proposal">Research Focus</a></li>
+                <li><a href="#research">Publications</a></li>
                 <li><a href="#experience">Experience & TA</a></li>
                 <li><a href="#service">Service</a></li>
                 <li><a href="#projects">Projects</a></li>
@@ -124,7 +127,7 @@
             </p>
             <div class="hero-buttons">
                 <a href="#research" class="cta-btn">View Publications</a>
-                <a href="cv.pdf" target="_blank" class="secondary-btn"><i class="fa-solid fa-file-pdf"></i> Download CV</a>
+                <a href="RPHARSH.pdf" target="_blank" class="secondary-btn"><i class="fa-solid fa-file-pdf"></i> View Proposal PDF</a>
             </div>
         </div>
     </section>
@@ -133,10 +136,76 @@
     <main class="max-width-wrapper">
         <div class="main-layout">
             
-            <!-- Left Side: Core Academic Profiles -->
+            <!-- Left Side: Core Academic Profiles & Detailed Research Portfolio -->
             <div>
+                <!-- Current Research Agenda & Proposal Summary Section -->
+                <section id="research-proposal" style="padding-top: 2rem;">
+                    <h2 class="section-title">Core Research Focus</h2>
+                    
+                    <div class="item-card" style="border-left: 4px solid var(--accent-color);">
+                        <h3>Design of Energy-Efficient CNN Accelerator for Next-Generation VLSI Systems</h3>
+                        <div class="item-meta">Research Agenda Summary | CANDEL Lab</div>
+                        <p class="item-desc" style="margin-bottom: 1rem;">
+                            My primary research addresses the growing demand for AI hardware acceleration profiles inside edge computing nodes and power-bounded embedded ecosystems. Deep Convolutional Neural Networks (CNNs) dictate state-of-the-art computer vision pipelines but suffer severe silicon area bottlenecks due to heavy floating-point computing structures.
+                        </p>
+                        
+                        <h4 style="font-size: 1rem; font-weight: 600; margin-top: 1rem;">Key Strategic Objectives:</h4>
+                        <ul style="font-size: 0.9rem; padding-left: 1.2rem; line-height: 1.6;">
+                            <li><strong>Algorithmic Complexity Reduction:</strong> Utilizing Fast Fourier Transforms (FFT) to swap out heavy spatial sliding-window spatial convolutions into lower complexity element-wise multiplications (transforming complexity from O(N<sup>2</sup>K<sup>2</sup>) down to O(N<sup>2</sup> log N)), specifically boosting computational efficiency across wide-kernel inference iterations.</li>
+                            <li><strong>Alternative Numerical Formats:</strong> Structuring customized micro-architectures leveraging the <strong>Posit Number System</strong> to yield a better accuracy-to-bit ratio, smaller silicon area footprints, and natural monotonic alignment to signed integer spaces compared directly to bloated IEEE 754 floating-point elements.</li>
+                            <li><strong>Biomedical Deployment Targets:</strong> Hardware acceleration targets include optimizing real-time cancer tube tracking and lung tumor semantic maps derived from high-resolution medical imaging datasets (DICOM / NIfTI files out of the LIDC-IDRI, LUNA16, and MosMedData libraries).</li>
+                        </ul>
+                    </div>
+
+                    <!-- Spatial vs FFT Complexity Subsection Table -->
+                    <div class="item-card">
+                        <h3>Workload Complexity Trade-Offs</h3>
+                        <p class="item-desc" style="font-size: 0.88rem; margin-bottom: 0.75rem;">
+                            Analytical breakdown modeling performance trade-offs between standard spatial execution blocks and frequency-domain transformation engines:
+                        </p>
+                        <div class="table-responsive">
+                            <table class="table table-sm table-dark text-start" style="font-size: 0.85rem; border-color: rgba(255,255,255,0.05);">
+                                <thead>
+                                    <tr style="color: var(--accent-color);">
+                                        <th>Feature Parameter</th>
+                                        <th>Spatial Convolution Logic</th>
+                                        <th>FFT Convolution Pipeline</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Mathematical Flow</strong></td>
+                                        <td>Direct window sliding: sum of K &times; K products</td>
+                                        <td>Image/Kernel transformation &rarr; Element multiplication &rarr; IFFT</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Computational Cost</strong></td>
+                                        <td>O(N<sup>2</sup>K<sup>2</sup>)</td>
+                                        <td>O(N<sup>2</sup> log N)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Breakeven Scaling</strong></td>
+                                        <td>Highly efficient for small kernels (&lt; 7 &times; 7)</td>
+                                        <td>Superior efficiency for wide kernels (&ge; 11 &times; 11)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Hardware Footprint</strong></td>
+                                        <td>Dense multiplier structures + complex multi-stage adders</td>
+                                        <td>Modular Butterfly FFT engines + compact execution MAC arrays</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>VLSI Power Profile</strong></td>
+                                        <td>Energy-heavy data shuffling loops</td>
+                                        <td>Excellent optimization via unified Fused-Posit MAC processing blocks</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
                 <!-- Research Section -->
-                <section id="research" style="padding-top: 2rem;">
+                <section id="research">
                     <h2 class="section-title">Selected Publications</h2>
                     
                     <!-- Paper 1 -->
@@ -147,6 +216,9 @@
                         <p class="item-desc" style="font-size: 0.9rem; color: var(--accent-color); margin-top: 0.5rem;">
                             <i class="fa-solid fa-award"></i> Recipient of the official VLSID 2026 Conference Travel Grant Fellowship.
                         </p>
+                        <div style="font-size: 0.85rem; margin: 0.5rem 0; color: var(--text-muted); line-height: 1.5;">
+                            <strong>Silicon Performance (TSMC 65nm Custom Layout):</strong> Radix-2 Operating Frequency of 2.04 GHz @ 3.24 mW Total Power; Radix-4 Operating Frequency of 3.54 GHz @ 2.42 mW Total Power. Replaced block layers with specialized 5-bit and 6-bit custom Node Summation Circuits utilizing 28-Transistor (28T) full-adder logic configurations to strip away redundant intermediate bit expansion during arithmetic operations.
+                        </div>
                         <div class="publication-links" style="margin-top: 0.75rem;">
                             <a href="https://ieeexplore.ieee.org/document/11433301" target="_blank" style="color: var(--accent-color); text-decoration: none; font-size: 0.9rem; font-weight: 500;">
                                 <i class="fa-solid fa-arrow-up-right-from-square"></i> View on IEEE Xplore
@@ -159,6 +231,9 @@
                         <h3>Design and ASIC Implementation of a Novel Three-Stage Pipelined Posit(16,2) Multiplier</h3>
                         <div class="item-meta">Submitted to IEEE ISVLSI 2026</div>
                         <p class="item-desc">Authors: Harsh Raj Thakur, Sparsh Mittal</p>
+                        <div style="font-size: 0.85rem; margin: 0.5rem 0; color: var(--text-muted); line-height: 1.5;">
+                            <strong>Core Framework:</strong> Models a customized pipelined execution loop tailored to feed spatial and frequency-domain tensor layers directly. Quantization error modeling checks verify that an un-biased 8-bit Posit implementation layout yields a significantly improved absolute error curve over standard floating-point architectures (such as FP8 E4M3 setups) across a normalized data array of [-2, +2].
+                        </div>
                         <div class="publication-links" style="margin-top: 0.75rem;">
                             <span style="color: var(--text-muted); font-size: 0.9rem; font-style: italic;">
                                 <i class="fa-solid fa-clock"></i> Under Review / Preprint Link Pending
@@ -198,6 +273,9 @@
                         <h3>A Comparative Analysis of Power Consumption and Delay in 4-bit Vedic Multiplier and a Proposed Multiplier Utilizing Variable Bit Adders for CNN Logic</h3>
                         <div class="item-meta">IEEE International Conference-INDISCON 2024</div>
                         <p class="item-desc">Authors: Harsh Raj Thakur, Phannong Youngkuk. Accepted and presented.</p>
+                        <div style="font-size: 0.85rem; margin: 0.5rem 0; color: var(--text-muted);">
+                            <strong>Benchmarking Summary:</strong> Charts processing delay loops and dynamic power parameters across Vedic structural trees, Wallace tree engines, and conventional fixed-point custom array multipliers at 1.8V bias constraints to map optimized low-delay data carry paths.
+                        </div>
                         <div class="publication-links" style="margin-top: 0.75rem;">
                             <span style="color: var(--text-muted); font-size: 0.9rem; font-style: italic;">
                                 <i class="fa-solid fa-clock"></i> Link Pending (Will be updated soon)
@@ -266,6 +344,18 @@
                 <!-- Projects Section -->
                 <section id="projects" style="padding-bottom: 0;">
                     <h2 class="section-title">Key Projects</h2>
+
+                    <div class="item-card">
+                        <h3>Posit-Arithmetic Accelerator Engine Integration</h3>
+                        <div class="item-meta">IIT Roorkee</div>
+                        <div class="item-desc">
+                            <ul>
+                                <li>Designed standalone hardware modules modeling low-power execution loops for Fused Posit Multiply-Add (PMAC) execution.</li>
+                                <li>Integrated zero-overflow arithmetic processing pipelines to systematically optimize memory bandwidth footprints during multi-layer forward propagation passes.</li>
+                                <li>Validated layout accuracy and convergence profiles under multi-corner post-synthesis environments on ASIC blocks.</li>
+                            </ul>
+                        </div>
+                    </div>
 
                     <div class="item-card">
                         <h3>Three-Stage Pipelined Posit(16,2) Multiplier ASIC Design</h3>
@@ -361,7 +451,7 @@
                 <div class="sidebar-box">
                     <h3>Education</h3>
                     <div class="edu-item">
-                        <div class="edu-degree">Research Scholar</div>
+                        <div class="edu-degree">Research Scholar (Roll: 24915004)</div>
                         <div class="edu-inst">IIT Roorkee</div>
                         <div class="edu-date">July 2024 - Present</div>
                     </div>
