@@ -8,12 +8,12 @@
 }
 
 :root {
-    --bg-color: #0f172a;
-    --card-bg: #1e293b;
+    --bg-color: #0b0f19;
+    --card-bg: rgba(30, 41, 59, 0.7);
     --accent-color: #38bdf8;
     --text-main: #f8fafc;
     --text-muted: #94a3b8;
-    --border-color: #334155;
+    --border-color: rgba(51, 65, 85, 0.6);
 }
 
 body {
@@ -32,10 +32,12 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: rgba(15, 23, 42, 0.9);
-    backdrop-filter: blur(10px);
+    background-color: rgba(11, 15, 25, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     z-index: 1000;
     border-bottom: 1px solid var(--border-color);
+    transition: all 0.3s ease;
 }
 
 .nav-container {
@@ -44,7 +46,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 2rem;
+    padding: 1.2rem 2rem;
 }
 
 .logo {
@@ -53,6 +55,7 @@ header {
     color: var(--accent-color);
     text-decoration: none;
     letter-spacing: 0.5px;
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
 }
 
 .nav-links {
@@ -66,11 +69,27 @@ header {
     color: var(--text-main);
     text-decoration: none;
     font-weight: 500;
+    position: relative;
     transition: color 0.3s;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
 }
 
 .nav-links a:hover {
     color: var(--accent-color);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
 }
 
 /* --- Sections Layout --- */
@@ -94,6 +113,7 @@ section {
     background: var(--accent-color);
     margin-top: 0.5rem;
     border-radius: 2px;
+    box-shadow: 0 0 8px var(--accent-color);
 }
 
 /* --- Hero Section --- */
@@ -108,17 +128,18 @@ section {
     margin: 0 auto;
 }
 
-.hero-img-container {
-    text-align: center;
-}
-
 .profile-img {
     width: 220px;
     height: 220px;
     border-radius: 50%;
     border: 4px solid var(--accent-color);
     object-fit: cover;
-    box-shadow: 0 10px 30px rgba(56, 189, 248, 0.15);
+    box-shadow: 0 0 25px rgba(56, 189, 248, 0.25);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.profile-img:hover {
+    transform: scale(1.05) rotate(2deg);
 }
 
 .hero-text h1 {
@@ -126,6 +147,9 @@ section {
     margin-bottom: 0.5rem;
     line-height: 1.1;
     font-weight: 700;
+    background: linear-gradient(to right, #f8fafc, #94a3b8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .hero-subtitle {
@@ -154,12 +178,13 @@ section {
     border-radius: 6px;
     text-decoration: none;
     font-weight: 600;
-    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 14px rgba(56, 189, 248, 0.3);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .cta-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(56, 189, 248, 0.5);
 }
 
 .secondary-btn {
@@ -170,34 +195,50 @@ section {
     border-radius: 6px;
     text-decoration: none;
     font-weight: 600;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease;
 }
 
 .secondary-btn:hover {
     background-color: rgba(255, 255, 255, 0.05);
+    border-color: var(--accent-color);
+    color: var(--accent-color);
 }
 
-/* --- Split Portfolio Grid Architecture --- */
+/* --- Split Portfolio Layout Grid --- */
 .main-layout {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 4rem;
 }
 
-/* --- Cards for Publications/Projects --- */
+/* --- Modern Glassmorphic Cards --- */
 .item-card {
-    background-color: var(--card-bg);
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
+    background: var(--card-bg);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 12px;
+    padding: 1.75rem;
+    margin-bottom: 1.75rem;
     border: 1px solid var(--border-color);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.item-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(56, 189, 248, 0.4);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2), inset 0 0 15px rgba(56, 189, 248, 0.05);
 }
 
 .item-card h3 {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     margin-bottom: 0.5rem;
     color: var(--text-main);
     font-weight: 600;
+    transition: color 0.3s;
+}
+
+.item-card:hover h3 {
+    color: var(--accent-color);
 }
 
 .item-meta {
@@ -227,11 +268,18 @@ section {
 }
 
 .sidebar-box {
-    background-color: var(--card-bg);
-    border-radius: 8px;
+    background: var(--card-bg);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 12px;
     padding: 1.5rem;
     border: 1px solid var(--border-color);
     margin-bottom: 2rem;
+    transition: border-color 0.3s;
+}
+
+.sidebar-box:hover {
+    border-color: rgba(56, 189, 248, 0.3);
 }
 
 .sidebar-box h3 {
@@ -249,12 +297,21 @@ section {
 }
 
 .skill-tag {
-    background-color: rgba(56, 189, 248, 0.1);
+    background-color: rgba(56, 189, 248, 0.08);
     color: var(--accent-color);
     padding: 0.4rem 0.8rem;
-    border-radius: 4px;
+    border-radius: 6px;
     font-size: 0.85rem;
     font-weight: 500;
+    border: 1px solid rgba(56, 189, 248, 0.15);
+    transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+    background-color: var(--accent-color);
+    color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.2);
 }
 
 .edu-item {
@@ -280,7 +337,7 @@ section {
     color: var(--accent-color);
 }
 
-/* --- Contact Section Form Elements --- */
+/* --- Contact Form Inputs --- */
 .contact-form {
     display: flex;
     flex-direction: column;
@@ -290,17 +347,20 @@ section {
 
 .form-group input, .form-group textarea {
     width: 100%;
-    padding: 0.85rem 1rem;
-    background-color: var(--card-bg);
+    padding: 0.9rem 1.1rem;
+    background-color: rgba(15, 23, 42, 0.6);
     border: 1px solid var(--border-color);
-    border-radius: 6px;
+    border-radius: 8px;
     color: var(--text-main);
     font-size: 0.95rem;
+    transition: all 0.3s ease;
 }
 
 .form-group input:focus, .form-group textarea:focus {
     outline: none;
     border-color: var(--accent-color);
+    box-shadow: 0 0 12px rgba(56, 189, 248, 0.2);
+    background-color: rgba(30, 41, 59, 0.4);
 }
 
 .submit-btn {
@@ -312,12 +372,26 @@ section {
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: opacity 0.3s;
+    box-shadow: 0 4px 14px rgba(56, 189, 248, 0.2);
+    transition: all 0.3s ease;
     max-width: 200px;
 }
 
 .submit-btn:hover {
-    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(56, 189, 248, 0.4);
+}
+
+/* --- JavaScript Scroll-Reveal Class Trigger --- */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.reveal-on-scroll.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* --- Footer Area --- */
@@ -338,11 +412,13 @@ footer {
     color: var(--text-muted);
     font-size: 1.4rem;
     margin: 0 1rem;
-    transition: color 0.3s;
+    display: inline-block;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .social-icons a:hover {
     color: var(--accent-color);
+    transform: translateY(-4px) scale(1.1);
 }
 
 .copyright {
@@ -351,7 +427,7 @@ footer {
     color: #475569;
 }
 
-/* --- Responsive Adjustments --- */
+/* --- Responsive Layout Breakpoints --- */
 @media (max-width: 900px) {
     #hero {
         grid-template-columns: 1fr;
